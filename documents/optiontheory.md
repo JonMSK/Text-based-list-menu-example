@@ -8,7 +8,7 @@ functionality.
 
 The following is a small list of the 3 different types of options you can add to your menu with this base...
 
-#### Regular-options
+## Regular-options
 Regular options are options where if the user presses enter (in this menus case, types the action function with a regular option's option handle) a function is called.
 We use lambdas to write the functions called when a regular option is pressed (if you don't know what lambdas are read https://www.learncpp.com/cpp-tutorial/introduction-to-lambdas-anonymous-functions/).
 Here is an example of adding a regular option to the last created submenu (more about submenus in another doc):
@@ -16,7 +16,7 @@ Here is an example of adding a regular option to the last created submenu (more 
 g_Manager->m_AllSubmenus.back()->createOption<RegularOption>("This is the name of the option which will be printed to the console. The next arg is the lambda.", []() { std::cout << "You used a regular option!";});
 ```
 
-#### Bool-options
+## Bool-options
 Bool options are options where if the user presses enter (in this menus case, types the action function with a regular option's option handle) a boolean value is changed to the
 opposite of its current value e.g. if a boolean option is pressed and it controls the testBoolean bool variable which is currently false, it will be changed to be true, and vice-versa.
 Here is an example of adding a bool option to the last created submenu:
@@ -27,7 +27,7 @@ g_Manager->m_AllSubmenus.back()->createOption<BoolOption>("Name of bool option, 
 Note above that testBoolean doesn't appear to be passed as reference, but when it is passed as an arg it is automatically converted to a reference due to the BoolOption constructor
 taking in a bool& value.
 
-#### Sub-options (You probably won't understand this without reading the submenus.md document prior)
+## Sub-options (You probably won't understand this without reading the submenus.md document prior)
 Sub options are options where if the user presses enter (in this menus case, types the action function with a regular option's option handle) the submenu specified by the submenu option's
 argument will be added to the top of the curSubmenuIndexes vector. The way this vector works is that it stores the indexes of the submenus you are currently in and prints the submenu
 from allSubMenus at the top index of curSubmenuIndexes. When you enter the "back" command, it pops the top value off of this vector unless there is only one element in it.
